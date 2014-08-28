@@ -13,7 +13,6 @@ public class Pistelaskuri {
     }
 
     public void kasvataArvoa() {
-//if (delfiiniinOsuu() && pallo == kerattava pallo) {
-//this.arvo++;
+        this.arvo++;
     }
 }

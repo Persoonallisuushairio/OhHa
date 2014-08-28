@@ -1,27 +1,30 @@
 package delfiinipeli;
 
+import delfiinipeli.mallit.Delfiini;
+import delfiinipeli.mallit.Hahmo;
+import delfiinipeli.mallit.Pallo;
 import delfiinipeli.logiikka.*;
 import delfiinipeli.kayttoliittyma.*;
+import java.awt.Color;
 import javax.swing.SwingUtilities;
 import java.util.ArrayList;
 
 public class Kaynnista {
 
     public static void main(String[] args) {
-        ArrayList<PoimittavatPallot> poimittavat = new ArrayList<PoimittavatPallot>();
-        ArrayList<VaistettavatPallot> vaistettavat = new ArrayList<VaistettavatPallot>();
-        
-//        ArrayList<Hahmo> kaikkiPelihahmot = new ArrayList<Hahmo>();
-        
-        
-        Delfiini flipper = new Delfiini(100, 250, 65, 65);
-        PoimittavatPallot pallonen = new PoimittavatPallot(100, 100, 50, 50);
-        PoimittavatPallot pallonen2 = new PoimittavatPallot(100, 100, 50, 50);
-        PoimittavatPallot pallonen3 = new PoimittavatPallot(100, 100, 50, 50);
-        
-//        kaikkiPelihahmot.add(flipper);
-//        kaikkiPelihahmot.add(pallonen);
+        ArrayList<Pallo> poimittavat = new ArrayList<Pallo>();
+        ArrayList<Pallo> vaistettavat = new ArrayList<Pallo>();
+  
+  
+        Delfiini flipper = new Delfiini(50, 50, 30);
+        Pallo pallonen = new Pallo(100, 150, 25, Color.BLUE);
+        Pallo pallonen2 = new Pallo(150, 250, 25, Color.RED);
+        Pallo pallonen3 = new Pallo(250, 300, 25, Color.YELLOW);
+
         poimittavat.add(pallonen);
+        poimittavat.add(pallonen2);
+        poimittavat.add(pallonen3);
+   
         
         Peli peli = new Peli(flipper, vaistettavat, poimittavat);
         

@@ -1,29 +1,33 @@
 package delfiinipeli.logiikka;
 
-import delfiinipeli.kayttoliittyma.*;
+import delfiinipeli.mallit.Delfiini;
+import delfiinipeli.mallit.Hahmo;
+import delfiinipeli.mallit.Pallo;
 import java.util.ArrayList;
-import javax.swing.SwingUtilities;
 
 public class Peli {
 
-    private Hahmo delfiini;
-    private ArrayList<VaistettavatPallot> vaistettavat;
-    private ArrayList<PoimittavatPallot> poimittavat;
+    private final Delfiini delfiini;
+    private final ArrayList<Pallo> vaistettavat;
+    private final ArrayList<Pallo> poimittavat;
 
-    public Peli(Delfiini delfiini, ArrayList<VaistettavatPallot> vaistettavat, 
-            ArrayList<PoimittavatPallot> kerattavat) {
+    public Peli(Delfiini delfiini,
+            ArrayList<Pallo> vaistettavat, 
+            ArrayList<Pallo> poimittavat) {
         this.delfiini = delfiini;
+        this.vaistettavat = vaistettavat;
+        this.poimittavat = poimittavat;
     }
     
-    public Hahmo getDelfiini() {
+    public Delfiini getDelfiini() {
         return this.delfiini;
     }
     
-    public ArrayList<VaistettavatPallot> getVaistettavat() {
+    public ArrayList<Pallo> getVaistettavat() {
         return this.vaistettavat;
     }
     
-    public ArrayList<PoimittavatPallot> getPoimittavat() {
+    public ArrayList<Pallo> getPoimittavat() {
         return this.poimittavat;
     }
 
