@@ -11,10 +11,13 @@ public class Kayttoliittyma implements Runnable {
     private int ikkunanKorkeus;
     private int ikkunanLeveys;
     private Peli peli;
+    private Timer ajastin;
 
     public Kayttoliittyma(Peli peli, Piirtoalusta piirtoalusta) {
         this.piirtoalusta = piirtoalusta;
         this.peli = peli;
+        
+        luoAjastin();
     }
 
     @Override
@@ -27,8 +30,14 @@ public class Kayttoliittyma implements Runnable {
         luoKomponentit(frame.getContentPane());
         frame.pack();
         frame.setVisible(true);
+        
+        peli.luoPallot(ikkunanLeveys, ikkunanKorkeus);
+        this.ajastin.start();  
     }
-
+    
+    public void luoAjastin() {
+        this.ajastin = new Timer(16, new AjastimenKuuntelija(peli, piirtoalusta));
+    }
     private void luoKomponentit(Container container) {
         container.add(piirtoalusta);
         frame.addKeyListener(new NappaimistonKuuntelija(this.peli, piirtoalusta));

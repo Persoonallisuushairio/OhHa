@@ -14,21 +14,12 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class Piirtoalusta extends JPanel {
-
-//    private ArrayList<Hahmo> pelihahmot;
-    private final Hahmo delfiini;
+    private Peli peli;
     private BufferedImage delfiiniKuva;
     
-    private final ArrayList<Pallo> vaistettavat;
-    private final ArrayList<Pallo> poimittavat;
-    
-    
-       public Piirtoalusta(Hahmo delfiini, ArrayList<Pallo> vaistettavat, 
-            ArrayList<Pallo> poimittavat) {
+       public Piirtoalusta(Peli peli) {
+           this.peli = peli;
            super.setBackground(Color.WHITE);
-           this.delfiini = delfiini;
-           this.vaistettavat = vaistettavat;
-           this.poimittavat = poimittavat;
            
         try {
             this.delfiiniKuva = ImageIO.read(new File("flipper.png"));
@@ -43,12 +34,12 @@ public class Piirtoalusta extends JPanel {
     protected void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
         
-        graphics.drawImage(delfiiniKuva, delfiini.getX(), delfiini.getY(), null);
-        //graphics.fillOval(delfiini.getX(), delfiini.getY(), delfiini.getLeveys(), delfiini.getKorkeus());
+        graphics.drawImage(delfiiniKuva, peli.getDelfiini().getX(), peli.getDelfiini().getY(), null);
         
-        for (Pallo p : poimittavat) {
+        for (Pallo p : peli.getPoimittavat()) {
             graphics.setColor(p.getVari());
             graphics.fillOval(p.getX(), p.getY(), p.getSade() * 2, p.getSade() * 2);
+            System.out.println(p.getY());
         }
     }
 }

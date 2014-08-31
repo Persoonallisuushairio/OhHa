@@ -18,8 +18,8 @@ public class Pallo extends Hahmo {
         return sade;
     }
     
-    public Pallo(int x, int y, int sade, Color vari) {
-        super(x, y);
+    public Pallo(int x, int y, float nopeus, int sade, Color vari) {
+        super(x, y, nopeus);
         this.sade = sade;
         this.vari = vari;
     }

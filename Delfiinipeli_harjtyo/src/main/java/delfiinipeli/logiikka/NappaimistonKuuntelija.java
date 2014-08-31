@@ -26,11 +26,11 @@ public class NappaimistonKuuntelija implements KeyListener {
         
         if (e.getKeyCode() == KeyEvent.VK_LEFT && delfiini.hahmoPysyyRuudussa(-muutos, 0, leveys, korkeus)) {
             this.delfiini.liikuta(-muutos, 0);
-        } else if (e.getKeyCode() == KeyEvent.VK_RIGHT && delfiini.hahmoPysyyRuudussa(muutos, 0, leveys, korkeus)) {
+        }  if (e.getKeyCode() == KeyEvent.VK_RIGHT && delfiini.hahmoPysyyRuudussa(muutos, 0, leveys, korkeus)) {
             this.delfiini.liikuta(muutos, 0);
-        } else if (e.getKeyCode() == KeyEvent.VK_DOWN && delfiini.hahmoPysyyRuudussa(0, muutos, leveys, korkeus)) {
+        }  if (e.getKeyCode() == KeyEvent.VK_DOWN && delfiini.hahmoPysyyRuudussa(0, muutos, leveys, korkeus)) {
             this.delfiini.liikuta(0, muutos);
-        } else if (e.getKeyCode() == KeyEvent.VK_UP && delfiini.hahmoPysyyRuudussa(0, -muutos, leveys, korkeus)) {
+        }  if (e.getKeyCode() == KeyEvent.VK_UP && delfiini.hahmoPysyyRuudussa(0, -muutos, leveys, korkeus)) {
             this.delfiini.liikuta(0, -muutos);
         }
         

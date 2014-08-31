@@ -4,7 +4,7 @@ public class Delfiini extends Hahmo{
     private int ulottuvuus;
     
     public Delfiini(int x, int y, int ulottuvuus) {
-        super(x, y);
+        super(x, y, 1.0f);
         this.ulottuvuus = ulottuvuus;
     }
          

@@ -2,24 +2,26 @@ package delfiinipeli.mallit;
 
 public class Hahmo {
 
-    private int x;
-    private int y;
-
-    public Hahmo(int x, int y) {
+    private float x;
+    private float y;
+    private final float nopeus;
+    
+    public Hahmo(int x, int y, float nopeus) {
         this.x = x;
         this.y = y;
+        this.nopeus = nopeus;
     }
 
     public int getX() {
-        return x;
+        return (int)x;
     }
 
     public int getY() {
-        return y;
+        return (int)y;
     }
 
     public void liikuta(int xmuutos, int ymuutos) {
-        this.x += xmuutos;
+        this.x += xmuutos * nopeus;
         this.y += ymuutos;
     }
 
