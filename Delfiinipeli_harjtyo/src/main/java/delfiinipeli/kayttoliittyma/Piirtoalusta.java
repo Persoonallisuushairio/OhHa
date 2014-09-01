@@ -35,11 +35,17 @@ public class Piirtoalusta extends JPanel {
         super.paintComponent(graphics);
         
         graphics.drawImage(delfiiniKuva, peli.getDelfiini().getX(), peli.getDelfiini().getY(), null);
+        graphics.drawString(peli.getLaskuri().toString(), 900, 20);
+        
         
         for (Pallo p : peli.getPoimittavat()) {
             graphics.setColor(p.getVari());
             graphics.fillOval(p.getX(), p.getY(), p.getSade() * 2, p.getSade() * 2);
-            System.out.println(p.getY());
+//            System.out.println(p.getY()); // TÄLLÄ TESTATAAN, missä kohdassa ruutua satunnainen pallo on pikseleinä mitattuna
+        }
+        for (Pallo v : peli.getVaistettavat()) {
+            graphics.setColor(v.getVari());
+            graphics.fillOval(v.getX(), v.getY(), v.getSade() * 2, v.getSade() * 2);
         }
     }
 }

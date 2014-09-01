@@ -15,4 +15,8 @@ public class Pistelaskuri {
     public void kasvataArvoa() {
         this.arvo++;
     }
+    @Override
+    public String toString() {
+        return "Pisteet: " + this.arvo;
+    }
 }

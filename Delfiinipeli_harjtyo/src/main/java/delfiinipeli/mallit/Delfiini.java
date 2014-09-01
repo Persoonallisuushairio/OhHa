@@ -1,11 +1,14 @@
 package delfiinipeli.mallit;
+import delfiinipeli.logiikka.*;
 
 public class Delfiini extends Hahmo{
     private int ulottuvuus;
+//    private Pistelaskuri pisteet;
     
     public Delfiini(int x, int y, int ulottuvuus) {
         super(x, y, 1.0f);
         this.ulottuvuus = ulottuvuus;
+//      this.pisteet = new Pistelaskuri();  
     }
          
     public int getUlottuvuus() {
@@ -25,9 +28,12 @@ public class Delfiini extends Hahmo{
         
         if((xmuutos * xmuutos) + (ymuutos * ymuutos) <= (sademuutos * sademuutos)) {
             System.out.println("osuu :>");
+//            this.pisteet.kasvataArvoa();
+//            System.out.println(pisteet.getArvo());
             return true;
         }
         
         return false;
     }
 }
+

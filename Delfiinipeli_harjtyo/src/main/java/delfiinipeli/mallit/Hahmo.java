@@ -4,7 +4,7 @@ public class Hahmo {
 
     private float x;
     private float y;
-    private final float nopeus;
+    private float nopeus;
     
     public Hahmo(int x, int y, float nopeus) {
         this.x = x;
@@ -15,10 +15,19 @@ public class Hahmo {
     public int getX() {
         return (int)x;
     }
-
+     
     public int getY() {
         return (int)y;
     }
+      public void setX(int uusiX) {
+        this.x = uusiX;
+    }
+      public void setY(int uusiY) {
+          this.y = uusiY;
+    }
+      public void setNopeus(float uusiNopeus) {
+          this.nopeus = uusiNopeus;
+      }
 
     public void liikuta(int xmuutos, int ymuutos) {
         this.x += xmuutos * nopeus;
@@ -29,7 +38,11 @@ public class Hahmo {
         if (x + xmuutos < leveys && x + xmuutos > 0 && y + ymuutos < korkeus && y + ymuutos > 0) {
             return true;
         }
-        
         return false;
     }
+//    public boolean hahmoOnRuudussa() {
+//        if (this.hahmoPysyyRuudussa(this.getX(), this.getY(), 1050, 650)) {
+//            return true;
+//        }
+//    }
 }

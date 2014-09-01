@@ -5,7 +5,8 @@ import delfiinipeli.mallit.Pallo;
 import java.awt.Component;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
+import java.util.*;
+        
 public class NappaimistonKuuntelija implements KeyListener {
 
     private final Component component;
