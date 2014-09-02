@@ -25,4 +25,18 @@ Tuntikirjanpito
 1h: refaktorointia
 
 **28.08. torstai**
-1,5h: lisää refaktorointia, paria metodia paranneltu, peli tunnistaa kun pallo törmää delfiiniin
+1,5h: lisää refaktorointia, paria metodia paranneltu
+
+**29.08. perjantai**
+0,5h: peli tunnistaa, kun pallo törmää delfiiiniin
+
+**31.08. sunnuntai**
+4h: lisää refaktorointia (luotu luokka "mallit"), tehty peliin ajastintoiminto (mm. luokka AjastimenKuuntelija) ja muuta pallojen
+liikettä määrittäviä metodeja
+
+**1.09. maanantai**
+4h: Luotu koko pelin peruspohja kuntoon: Oikeasta reunasta valuu nyt jatkuvalla syötöllä sekä poimittavia, että väistettäviä palloja.
+	Kun poimittavaan osuu, se "katoaa" (piirtyy uudestaan valumaan oikeasta reunasta), ja pelin pistelaskurin arvo lisääntyy.
+	Sekä punaiset, että siniset pallot piirtyvät uudestaan oikeaan reunaan saavuttaessaan vasemman.
+	Metodeina: Peli-luokkaan laajennettu pallojenLiike()-metodia ja lisätty laskurinArvoKasvaa(). Peli luokalla on nyt muuttujina
+	myös Random ja pistelaskuri.
