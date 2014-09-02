@@ -2,6 +2,9 @@ package delfiinipeli.kayttoliittyma;
 
 import delfiinipeli.logiikka.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class Kayttoliittyma implements Runnable {
@@ -27,6 +30,14 @@ public class Kayttoliittyma implements Runnable {
         frame = new JFrame("Delfiinipeli");
         frame.setPreferredSize(new Dimension(ikkunanLeveys, ikkunanKorkeus));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        
+//        try{
+//        frame.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("pelitaustaa.jpg")))));
+//        }catch(IOException e){
+//            System.out.println("Ei kuvatiedostoa");
+//        }
+//        frame.setLayout(new FlowLayout());
+            
         luoKomponentit(frame.getContentPane());
         frame.pack();
         frame.setVisible(true);
@@ -41,10 +52,9 @@ public class Kayttoliittyma implements Runnable {
     private void luoKomponentit(Container container) {
         container.add(piirtoalusta);
         frame.addKeyListener(new NappaimistonKuuntelija(this.peli, piirtoalusta));
+        
+        
     }
-// private JPanel luoValikko() {
-// JPanel panel = new JPanel
-// }
 
     public JFrame getFrame() {
         return frame;

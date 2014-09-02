@@ -22,7 +22,7 @@ public class Piirtoalusta extends JPanel {
            super.setBackground(Color.WHITE);
            
         try {
-            this.delfiiniKuva = ImageIO.read(new File("flipper.png"));
+            this.delfiiniKuva = ImageIO.read(new File("delfiiniversio5.png"));
         } catch (IOException ex) {
             Logger.getLogger(Piirtoalusta.class.getName()).log(Level.SEVERE, null, ex);
             this.delfiiniKuva = null;

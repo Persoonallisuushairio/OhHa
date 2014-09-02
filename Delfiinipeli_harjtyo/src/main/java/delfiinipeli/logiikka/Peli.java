@@ -13,12 +13,14 @@ public class Peli {
     private final ArrayList<Pallo> poimittavat;
     private Random r;
     private Pistelaskuri pisteet;
+    private boolean osuuVaistettavaan;
     
     public Peli() {    
        delfiini = new Delfiini(50, 50, 30);
        poimittavat = new ArrayList<Pallo>();
        vaistettavat = new ArrayList<Pallo>();
        pisteet = new Pistelaskuri();
+       osuuVaistettavaan = false;
     }
     
     public void luoPallot(int ikkunanLeveys, int ikkunanKorkeus) {
@@ -83,6 +85,8 @@ public class Peli {
     public Pistelaskuri getLaskuri() {
         return this.pisteet;
     }
+    
+    
     
 //    public void pallojenUudelleenPiirto() {
 //      for(Pallo p : poimittavat) {
