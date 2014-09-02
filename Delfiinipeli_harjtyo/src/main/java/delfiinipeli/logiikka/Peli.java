@@ -49,7 +49,8 @@ public class Peli {
     public ArrayList<Pallo> getPoimittavat() {
         return this.poimittavat;
     }
-
+    
+    
     public void pallojenLiike() {
         for(Pallo p : poimittavat) {
             if (!delfiini.osuuko(p) && p.getX() > 0) {

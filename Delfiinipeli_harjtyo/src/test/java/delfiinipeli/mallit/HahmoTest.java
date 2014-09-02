@@ -49,30 +49,29 @@ public class HahmoTest {
          assertEquals(40, hahmo.getX());
          assertEquals(-10, hahmo.getY());
     }
-            
+    @Test
+    public void hahmoPysyyRuudussaRajaArvoillaTrue() {
+        //true, kun väitetään, että 1049 < 1050 ja 649 < 650
+        assertTrue(hahmo.hahmoPysyyRuudussa(949, 559, 1050, 650));
+    }
 
-//    @Test
-//    public void hahmoPysyyRuudussaTrue() {
-//        Hahmo hahmo = new Hahmo(100, 90, 2.0f);
-//        assertTrue(hahmo.hahmoPysyyRuudussa(899, 499, 1050, 650));
-//    }
-//
-//    @Test
-//    public void hahmoPysyyRuudussaFalse() {
-//        Hahmo hahmo = new Hahmo(100, 90, 2.0f);
-//        assertFalse(hahmo.hahmoPysyyRuudussa(900, 500, 1050, 650));
-//    }
-//
-//    @Test
-//    public void hahmoPysyyRuudussaTrue2() {
-//        Hahmo hahmo = new Hahmo(100, 90, 2.0f);
-//        assertTrue(hahmo.hahmoPysyyRuudussa(-99, -89, 1050, 650));
-//    }
-//
-//    @Test
-//    public void hahmoPysyyRuudussaFalse2() {
-//        Hahmo hahmo = new Hahmo(100, 90, 2.0f);
-//        assertFalse(hahmo.hahmoPysyyRuudussa(-110, 5, 1050, 650));
-//    }
+    @Test
+    public void hahmoPysyyRuudussaRajaArvoillaFalse() {
+        //false, kun väitetään, että 1050 < 1050 ja 650 < 650
+        assertFalse(hahmo.hahmoPysyyRuudussa(950, 560, 1050, 650));
+    }
+    
+    @Test
+    public void hahmoPysyyRuudussaMiinuksillaTrue2() {
+        //true kun käytetään miinuslukuja
+        assertTrue(hahmo.hahmoPysyyRuudussa(-99, -89, 1050, 650));
+    }
+
+    @Test
+    public void hahmoPysyyRuudussaMiinuksillaFalse2() {
+        // false, koska x + -110 = -10 || !(-10 > 0) 
+        //// (huom, tässä x=100)
+        assertFalse(hahmo.hahmoPysyyRuudussa(-110, 5, 1050, 650));
+    }
     
 }
