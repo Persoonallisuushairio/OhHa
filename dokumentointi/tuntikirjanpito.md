@@ -12,7 +12,7 @@ Tuntikirjanpito
 	lisäksi luotu luokkia, hahmo luokkaan liikkumis-metodi
 
 **11.08 maanantai**
-3h: luotu luokka "NappaimistonKuuntelija", hahmo liikkuu nyt nuolinäppäimistä
+3h: luotu luokka "NappaimistonKuuntelija", hahmo liikkuu nyt nuolinäppäimistä,
 	pari testiä
 
 **12.08. tiistai**
@@ -40,3 +40,7 @@ liikettä määrittäviä metodeja
 	Sekä punaiset, että siniset pallot piirtyvät uudestaan oikeaan reunaan saavuttaessaan vasemman.
 	Metodeina: Peli-luokkaan laajennettu pallojenLiike()-metodia ja lisätty laskurinArvoKasvaa(). Peli luokalla on nyt muuttujina
 	myös Random ja pistelaskuri.
+
+**2.09. tiistai**
+2h: Hahmo-, delfiini-, Pistelaskuri- ja pallo-luokan junit-testit
+0,5h: Pelihahmon (delfiinin) piirtäminen & skannaus tietokoneelle, jo olemassa olevan piirretyn taustan skannaus
