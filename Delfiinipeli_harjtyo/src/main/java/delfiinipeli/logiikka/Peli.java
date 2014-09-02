@@ -37,7 +37,7 @@ public class Peli {
             }
         }
     }
-    
+//    
     public Delfiini getDelfiini() {
         return this.delfiini;
     }

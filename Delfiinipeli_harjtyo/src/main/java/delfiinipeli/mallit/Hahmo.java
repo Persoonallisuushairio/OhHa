@@ -5,7 +5,7 @@ public class Hahmo {
     private float x;
     private float y;
     private float nopeus;
-    
+
     public Hahmo(int x, int y, float nopeus) {
         this.x = x;
         this.y = y;
@@ -13,21 +13,28 @@ public class Hahmo {
     }
 
     public int getX() {
-        return (int)x;
+        return (int) x;
     }
-     
+
     public int getY() {
-        return (int)y;
+        return (int) y;
     }
-      public void setX(int uusiX) {
+
+    public void setX(int uusiX) {
         this.x = uusiX;
     }
-      public void setY(int uusiY) {
-          this.y = uusiY;
+
+    public void setY(int uusiY) {
+        this.y = uusiY;
     }
-      public void setNopeus(float uusiNopeus) {
-          this.nopeus = uusiNopeus;
-      }
+
+    public float getNopeus() {
+        return this.nopeus;
+    }
+
+    public void setNopeus(float uusiNopeus) {
+        this.nopeus = uusiNopeus;
+    }
 
     public void liikuta(int xmuutos, int ymuutos) {
         this.x += xmuutos * nopeus;
