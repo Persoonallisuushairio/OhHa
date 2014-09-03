@@ -41,6 +41,7 @@ public class Piirtoalusta extends JPanel {
         for (Pallo p : peli.getPoimittavat()) {
             graphics.setColor(p.getVari());
             graphics.fillOval(p.getX(), p.getY(), p.getSade() * 2, p.getSade() * 2);
+            
 //            System.out.println(p.getY()); // TÄLLÄ TESTATAAN, missä kohdassa ruutua satunnainen pallo on pikseleinä mitattuna
         }
         for (Pallo v : peli.getVaistettavat()) {

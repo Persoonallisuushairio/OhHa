@@ -33,15 +33,34 @@ public class PeliTest {
     }
 
 
+//    MITEN?!?!?!?!?!?!?!?!
+//    @Test
+//    public void RandomYAntaaOikealtaValiltaArvonPallojaLuodessa() {
+//        
+//
+//    }
+//    @Test
+//    public void RandomNopeusAntaaArvonOikealtaValilta() {
+//        
+//    }
+    
+   
+    
     
     @Test
-    public void luoPallotToimii() {
-
+    public void getLaskuriPalauttaaLaskurin() {
+        peli.getLaskuri().kasvataArvoa();
+        peli.getLaskuri().kasvataArvoa();
+        
+        assertEquals(2, peli.getLaskuri().getArvo());
     }
-
-    @Test
-    public void laskurinArvoKasvaaMetodiKasvattaaArvoa() {
-        peli.laskurinArvoKasvaa();
-        assertEquals(1, peli.getLaskuri().getArvo());
-    }
+    
+// ei voida testaa, ennenkuin tiedetään delfiini.osuuko-metodin toiminnasta..???
+    // et voi muutenkaan tehdä näin, sillä eihän laskurin arvo kasva, jos delfiini ei osu palloon!!
+//    @Test
+//    public void laskurinArvoKasvaaMetodiKasvattaaArvoa() {
+//        peli.laskurinArvoKasvaa();
+//        
+//        assertEquals(1, peli.getLaskuri().getArvo());
+//    }
 }
