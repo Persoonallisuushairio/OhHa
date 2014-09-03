@@ -9,7 +9,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class PeliTest {
-
+    
+    Peli peli;
+    
     public PeliTest() {
     }
 
@@ -23,6 +25,7 @@ public class PeliTest {
 
     @Before
     public void setUp() {
+        peli = new Peli();
     }
 
     @After
@@ -32,12 +35,13 @@ public class PeliTest {
 
     
     @Test
-    public void getDelfiiniToimii() {
+    public void luoPallotToimii() {
 
     }
 
     @Test
-    public void getDelfiiniPalauttaaTyhjanOlionJosDelfiiniaEiOle() {
-
+    public void laskurinArvoKasvaaMetodiKasvattaaArvoa() {
+        peli.laskurinArvoKasvaa();
+        assertEquals(1, peli.getLaskuri().getArvo());
     }
 }
