@@ -1,19 +1,15 @@
-﻿Delfiinipeli
+﻿Delfiinipeli 2.0
 --
 
 **Aihe: Delfiinipeli**
 Toteutetaan reaaliaikainen delfiiniaiheinen peli, joka on kaksiulotteinen ja kuvattu sivulta. Pelaajan hahmona on delfiini, jota ohjataan nuolinäppäimillä.
-Pelin tarkoituksena on kerätä mahdollisimman paljon tietyn värisiä oikeasta reunasta vastaan tulevia palloja, ja väistellä samalla toisen värisiä palloja.
-Peli vaikeutuu aina joko esimerkiksi tietyn aikarajan tai kerättyjen pallojen määrän mukaan. Pallojen nopeus ja niiden suhteelliset määrät muuttuvat seuraavaan
-tasoon tultaessa.
+Pelin tarkoituksena on kerätä mahdollisimman paljon sinisiä oikeasta reunasta vastaan tulevia palloja, ja väistellä samalla punaisia palloja.
+Peli vaikeutuu aina sen mukaan, kuinka paljon palloja ohittaa ruudun. Peli vaikeutuu siis väistämättä punaisten pallojen valuessa ohi ruudun, mutta myös
+sinisten pallojen missaaminen lisää vaikeustasoa. Delfiinin nopeus kasvaa pallojen nopeuden mukana, jotta pelaaja ei hyydy pallojen tahdista jälkeen.
 
- 
 **Toimintoja:**
-- Aloitusvalikko: kysyy pelaajan nimen. Sisältää painikkeen pelin käynnistämiseen ja High Score-listan tarkasteluun.
-- Itse peli: sisältää pistelaskurin ylänurkassa
-- Pelin lopuksi: peli ilmoittaa pelaajan pisteet ja näyttää High Score-listan tilanteen
+- delfiini liikkuu nuolinäppäimistä
+- sisältää pistelaskurin ylänurkassa
+- Pelin lopuksi: tulostaa vielä pelaajan pisteet, mahdollista aloittaa uusi peli, tai sammuttaa koko peli
 
-**Mahdollisia toimintoja / laajennusideoita:**
-- Tasojen välissä tekstit ilmoittavat tason vaihtumisesta tyylillä "Taso 2"
-- Erilaiset taustat eri tasoilla
 

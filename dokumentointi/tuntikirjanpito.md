@@ -50,6 +50,8 @@ liikett‰ m‰‰ritt‰vi‰ metodeja
 
 **4.09. torstai**
 1,5h: refakrotointia, delfiinin ja osumatarkkuuden skaalaus
-1h: Ajastin pys‰htyy, kun delfiini osuu punaiseen palloo, delfiinin osumaa paranneltu (aiemmin peli loppui, vaikka
+1,3h: Ajastin pys‰htyy, kun delfiini osuu punaiseen palloo, delfiinin osumaa paranneltu (aiemmin peli loppui, vaikka
 	punainen pallo ei ollut l‰hell‰k‰‰n delfiini‰), lis‰tty peliin tausta
-	
+1,2h: taas refaktorointia, lopetusruutu & sen toiminnot, pistelaskuri nollaantuu ennen uuden pelin aloittamista	
+3,5h: delfiinin liikkumista paranneltu, laitettu peli vaikeutumaan, paljon testej‰
+0,5h: dokumentaatiota
