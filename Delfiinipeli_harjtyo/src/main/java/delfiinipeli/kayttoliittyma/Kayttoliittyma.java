@@ -15,11 +15,13 @@ public class Kayttoliittyma implements Runnable {
     private int ikkunanLeveys;
     private Peli peli;
     private Timer ajastin;
+    private AjastimenKuuntelija ajastimenKuuntelija;
 
     public Kayttoliittyma(Peli peli, Piirtoalusta piirtoalusta) {
         this.piirtoalusta = piirtoalusta;
         this.peli = peli;
-        
+        this.ajastimenKuuntelija = new AjastimenKuuntelija(peli, piirtoalusta);
+
         luoAjastin();
     }
 
@@ -30,30 +32,48 @@ public class Kayttoliittyma implements Runnable {
         frame = new JFrame("Delfiinipeli");
         frame.setPreferredSize(new Dimension(ikkunanLeveys, ikkunanKorkeus));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        
-//        try{
-//        frame.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("pelitaustaa.jpg")))));
-//        }catch(IOException e){
-//            System.out.println("Ei kuvatiedostoa");
-//        }
-//        frame.setLayout(new FlowLayout());
-            
+
         luoKomponentit(frame.getContentPane());
         frame.pack();
         frame.setVisible(true);
-        
+
         peli.luoPallot(ikkunanLeveys, ikkunanKorkeus);
-        this.ajastin.start();  
+        this.ajastin.start();
+        
+        if (!ajastin.isRunning()) {
+            System.out.println("haahaa! peli ohi");
+            JOptionPane.showMessageDialog(frame, "plaalaa");
+        }
+
     }
-    
+
     public void luoAjastin() {
-        this.ajastin = new Timer(16, new AjastimenKuuntelija(peli, piirtoalusta));
+        this.ajastin = new Timer(16, ajastimenKuuntelija /*new AjastimenKuuntelija(peli, piirtoalusta)*/);
+        peli.asetaAjastin(ajastin);
     }
+
     private void luoKomponentit(Container container) {
         container.add(piirtoalusta);
         frame.addKeyListener(new NappaimistonKuuntelija(this.peli, piirtoalusta));
         
-        
+//        if (!ajastin.isRunning() /*!ajastimenKuuntelija.getPallotLiikkuu()*/) {
+//            System.out.println("haahaa! peli ohi");
+//            JOptionPane.showMessageDialog(frame, "plaalaa");
+//        }
+//        JOptionPane.showMessageDialog(frame, "plaalaa");
+//        if (peli.getOnkoPeliKaynnissa()) {
+//            Object[] options = {"Käynnistä uusi peli",
+//                "Lopeta peli"};
+//            int n = JOptionPane.showOptionDialog(frame,
+//                    "pisteitä",
+//                    "Game Over",
+//                    JOptionPane.YES_NO_OPTION,
+//                    JOptionPane.PLAIN_MESSAGE,
+//                    null,
+//                    options,
+//                    options[2]);
+
+//        }
     }
 
     public JFrame getFrame() {
