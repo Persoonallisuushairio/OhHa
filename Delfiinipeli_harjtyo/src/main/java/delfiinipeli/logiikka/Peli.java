@@ -8,6 +8,10 @@ import java.util.Random;
 import java.util.Set;
 
 public class Peli {
+    /*Peli luokka aloittaa pelin
+    Luokassa luodaan kaikki liikkuvat pelihahmot, ja
+    Hahmojen liikkeen peruspalaset tuotetaan luokassa
+    */
 
     private final Delfiini delfiini;
     private final ArrayList<Pallo> pallot;
