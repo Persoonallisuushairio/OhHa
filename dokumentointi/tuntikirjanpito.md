@@ -44,3 +44,12 @@ liikett‰ m‰‰ritt‰vi‰ metodeja
 **2.09. tiistai**
 2h: Hahmo-, delfiini-, Pistelaskuri- ja pallo-luokan junit-testit
 0,5h: Pelihahmon (delfiinin) piirt‰minen & skannaus tietokoneelle, jo olemassa olevan piirretyn taustan skannaus
+
+**3.09. keskiviikko**
+2h: testej‰, pelin taustan skannaus koneelle
+
+**4.09. torstai**
+1,5h: refakrotointia, delfiinin ja osumatarkkuuden skaalaus
+1h: Ajastin pys‰htyy, kun delfiini osuu punaiseen palloo, delfiinin osumaa paranneltu (aiemmin peli loppui, vaikka
+	punainen pallo ei ollut l‰hell‰k‰‰n delfiini‰), lis‰tty peliin tausta
+	
