@@ -35,10 +35,6 @@ public class NappaimistonKuuntelija implements KeyListener {
             this.delfiini.liikuta(0, -muutos);
         }
         
-        for(Pallo p : peli.getPoimittavat()) {
-            this.delfiini.osuuko(p);
-        }
-        
         component.repaint();
     }
 

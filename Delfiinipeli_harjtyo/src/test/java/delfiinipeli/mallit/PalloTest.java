@@ -26,7 +26,7 @@ public class PalloTest {
     
     @Before
     public void setUp() {
-        pallo = new Pallo(1050, 150, 2.0f, 25, Color.GREEN);
+        pallo = new Pallo(1050, 150, 2.0f, 25, true);
     }
     
     @After

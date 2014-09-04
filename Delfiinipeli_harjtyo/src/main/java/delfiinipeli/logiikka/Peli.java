@@ -9,16 +9,14 @@ import java.util.Random;
 public class Peli {
 
     private final Delfiini delfiini;
-    private final ArrayList<Pallo> vaistettavat;
-    private final ArrayList<Pallo> poimittavat;
+    private final ArrayList<Pallo> pallot;
     private Random r;
     private Pistelaskuri pisteet;
     private boolean osuuVaistettavaan;
 
     public Peli() {
-        delfiini = new Delfiini(50, 50, 30);
-        poimittavat = new ArrayList<Pallo>();
-        vaistettavat = new ArrayList<Pallo>();
+        delfiini = new Delfiini(50, 50, 55);
+        pallot = new ArrayList<>();
         pisteet = new Pistelaskuri();
         osuuVaistettavaan = false;
         r = new Random();
@@ -30,62 +28,52 @@ public class Peli {
             int y = r.nextInt(ikkunanKorkeus);
             float nopeus = r.nextFloat() * 9.0f + 1.0f;
             int sade = 25;
-            if (i % 2 == 0) {
-                Pallo p = new Pallo(ikkunanLeveys, y, nopeus, sade, Color.BLUE);
-                poimittavat.add(p);
-            } else {
-                Pallo v = new Pallo(ikkunanLeveys, y, nopeus, sade, Color.RED);
-                vaistettavat.add(v);
 
+            boolean vaistettava;
+
+            if (i % 2 == 0) {
+                vaistettava = true;
+            } else {
+                vaistettava = false;
             }
+
+            Pallo p = new Pallo(ikkunanLeveys, y, nopeus, sade, vaistettava);
+            pallot.add(p);
         }
     }
-//    
-
+    
     public Delfiini getDelfiini() {
         return this.delfiini;
     }
 
-    public ArrayList<Pallo> getVaistettavat() {
-        return this.vaistettavat;
-    }
-
-    public ArrayList<Pallo> getPoimittavat() {
-        return this.poimittavat;
+    public ArrayList<Pallo> getPallot() {
+        return this.pallot;
     }
 
     public void pallojenLiike() {
-        for (Pallo p : poimittavat) {
-            if (!delfiini.osuuko(p) && p.getX() > 0) {
+        for (Pallo p : pallot) {
+            if (p.getX() > 0) {
                 p.liikuta(-1, 0);
             } else {
-                laskurinArvoKasvaa();
-                p.setX(1050);
-                p.setY(r.nextInt(650));
-                p.setNopeus(r.nextFloat() * 9.0f + 1.0f);
+                nollaaPallo(p);
+            }
+
+            if (delfiini.osuuko(p)) {
+                if (p.onkoVaistettava()) {
+
+                } else {
+                    pisteet.kasvataArvoa();
+                    nollaaPallo(p);
+                    System.out.println(pisteet.getArvo());
+                }
             }
         }
-        for (Pallo v : vaistettavat) {
-            if (v.getX() > 0) {
-                v.liikuta(-1, 0);
-            } else {
-                v.setX(1050);
-                v.setY(r.nextInt(650));
-                v.setNopeus(r.nextFloat() * 9.0f + 1.0f);
-            }
-        }
-    }
-    public void pallotRandomisti() {
-        
     }
 
-    public void laskurinArvoKasvaa() {
-        for (Pallo p : poimittavat) {
-            if (delfiini.osuuko(p)) {
-                pisteet.kasvataArvoa();
-                System.out.println(pisteet.getArvo());
-            }
-        }
+    private void nollaaPallo(Pallo p) {
+        p.setX(1050);
+        p.setY(r.nextInt(650));
+        p.setNopeus(r.nextFloat() * 9.0f + 1.0f);
     }
 
     public Pistelaskuri getLaskuri() {

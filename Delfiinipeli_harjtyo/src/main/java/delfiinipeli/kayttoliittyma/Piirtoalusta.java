@@ -22,7 +22,7 @@ public class Piirtoalusta extends JPanel {
            super.setBackground(Color.WHITE);
            
         try {
-            this.delfiiniKuva = ImageIO.read(new File("delfiiniversio5.png"));
+            this.delfiiniKuva = ImageIO.read(new File("delfiiniversio6.png"));
         } catch (IOException ex) {
             Logger.getLogger(Piirtoalusta.class.getName()).log(Level.SEVERE, null, ex);
             this.delfiiniKuva = null;
@@ -38,15 +38,9 @@ public class Piirtoalusta extends JPanel {
         graphics.drawString(peli.getLaskuri().toString(), 900, 20);
         
         
-        for (Pallo p : peli.getPoimittavat()) {
+        for (Pallo p : peli.getPallot()) {
             graphics.setColor(p.getVari());
             graphics.fillOval(p.getX(), p.getY(), p.getSade() * 2, p.getSade() * 2);
-            
-//            System.out.println(p.getY()); // TÄLLÄ TESTATAAN, missä kohdassa ruutua satunnainen pallo on pikseleinä mitattuna
-        }
-        for (Pallo v : peli.getVaistettavat()) {
-            graphics.setColor(v.getVari());
-            graphics.fillOval(v.getX(), v.getY(), v.getSade() * 2, v.getSade() * 2);
         }
     }
 }
