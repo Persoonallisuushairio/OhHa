@@ -1,21 +1,18 @@
 package delfiinipeli.logiikka;
-import delfiinipeli.kayttoliittyma.Piirtoalusta;
-import delfiinipeli.mallit.Pallo;
-import javax.swing.*;
+import delfiinipeli.kayttoliittyma.Kayttoliittyma;
 import java.awt.event.*;
 
 public class AjastimenKuuntelija implements ActionListener {
-    private final Peli peli;
-    private final Piirtoalusta piirtoalusta;
+    private final Kayttoliittyma kayttoliittyma;
     
     
-    public AjastimenKuuntelija(Peli peli, Piirtoalusta piirtoalusta) {
-        this.peli = peli; 
-        this.piirtoalusta = piirtoalusta;
+    public AjastimenKuuntelija(Kayttoliittyma kayttoliittyma) {
+        this.kayttoliittyma = kayttoliittyma;
     }
+    
     @Override
-    public void actionPerformed(ActionEvent e) {  
-        peli.pallojenLiike();
-        piirtoalusta.repaint();
+    public void actionPerformed(ActionEvent e) {
+        kayttoliittyma.paivita();
     }
+    
 }

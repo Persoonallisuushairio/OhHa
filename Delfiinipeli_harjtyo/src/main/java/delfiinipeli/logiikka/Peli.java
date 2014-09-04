@@ -2,7 +2,6 @@ package delfiinipeli.logiikka;
 
 import delfiinipeli.mallit.Delfiini;
 import delfiinipeli.mallit.Pallo;
-import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.Timer;
@@ -13,13 +12,14 @@ public class Peli {
     private final ArrayList<Pallo> pallot;
     private Random r;
     private Pistelaskuri pisteet;
-    private Timer ajastin;
+    private boolean osunutVaistettavaan;
 
     public Peli() {
         delfiini = new Delfiini(50, 50);
         pallot = new ArrayList<>();
         pisteet = new Pistelaskuri();
         r = new Random();
+        osunutVaistettavaan = false;
 
     }
     public void luoPallot(int ikkunanLeveys, int ikkunanKorkeus) {
@@ -60,11 +60,10 @@ public class Peli {
 
             if (delfiini.osuuko(p)) {
                 if (p.onkoVaistettava()) {
-                    ajastin.stop();
+                    this.osunutVaistettavaan = true;
                 } else {
                     pisteet.kasvataArvoa();
                     nollaaPallo(p);
-                    System.out.println(pisteet.getArvo());
                 }
             }
         }
@@ -80,15 +79,16 @@ public class Peli {
         return this.pisteet;
     }
 
-    public void asetaAjastin(Timer ajastin) {
-        this.ajastin = ajastin;
+    public void aloita() {
+        for(Pallo p : pallot) {
+            nollaaPallo(p);
+        }
+        
+        this.osunutVaistettavaan = false;
     }
     
-    public void aloita() {
-        
-    }
-    public void lopeta() {
-        
+    public boolean onkoOsunutVaistettavaan() {
+        return this.osunutVaistettavaan;
     }
 
 }

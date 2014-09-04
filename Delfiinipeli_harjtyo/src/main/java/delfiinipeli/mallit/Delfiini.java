@@ -1,25 +1,12 @@
 package delfiinipeli.mallit;
-import delfiinipeli.logiikka.*;
 
-public class Delfiini extends Hahmo{
-//    private int ulottuvuusVaistettava;
-//    private int ulottuvuusPoimittava;
-    
+public class Delfiini extends Hahmo {
+
     
     public Delfiini(int x, int y/*, int ulottuvuus*/) {
         super(x, y, 1.0f);
-//        this.ulottuvuusVaistettava = 45; 
-//        this.ulottuvuusPoimittava = 30;
-//        this.ulottuvuus = ulottuvuus;
     }
-         
-//    public int getUlottuvuus() {
-//        return ulottuvuus;
-//    }
-//
-//    public void setUlottuvuus(int ulottuvuus) {
-//        this.ulottuvuus = ulottuvuus;
-//    }
+ 
     public int pallonTyyppi(Pallo pallo) {
         int vaistettava = 30;
         int poimittava = 55;
@@ -36,7 +23,6 @@ public class Delfiini extends Hahmo{
         int sademuutos = pallo.getSade() + pallonTyyppi(pallo); /*getUlottuvuus();*/
         
         if((xmuutos * xmuutos) + (ymuutos * ymuutos) <= (sademuutos * sademuutos)) {
-            System.out.println("osuu :>");
             return true;
         }    
         

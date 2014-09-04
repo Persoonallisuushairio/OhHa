@@ -2,27 +2,20 @@ package delfiinipeli.kayttoliittyma;
 
 import delfiinipeli.logiikka.*;
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
-    private Piirtoalusta piirtoalusta;
+    private final Piirtoalusta piirtoalusta;
     private int ikkunanKorkeus;
     private int ikkunanLeveys;
     private Peli peli;
     private Timer ajastin;
-    private AjastimenKuuntelija ajastimenKuuntelija;
 
     public Kayttoliittyma(Peli peli, Piirtoalusta piirtoalusta) {
         this.piirtoalusta = piirtoalusta;
         this.peli = peli;
-        this.ajastimenKuuntelija = new AjastimenKuuntelija(peli, piirtoalusta);
-
-        luoAjastin();
     }
 
     @Override
@@ -38,24 +31,16 @@ public class Kayttoliittyma implements Runnable {
         frame.setVisible(true);
 
         peli.luoPallot(ikkunanLeveys, ikkunanKorkeus);
-        this.ajastin.start();
-        
-        if (!ajastin.isRunning()) {
-            System.out.println("haahaa! peli ohi");
-            JOptionPane.showMessageDialog(frame, "plaalaa");
-        }
 
-    }
+        this.ajastin = new Timer(16, new AjastimenKuuntelija(this));
 
-    public void luoAjastin() {
-        this.ajastin = new Timer(16, ajastimenKuuntelija /*new AjastimenKuuntelija(peli, piirtoalusta)*/);
-        peli.asetaAjastin(ajastin);
+        kaynnista();
     }
 
     private void luoKomponentit(Container container) {
         container.add(piirtoalusta);
         frame.addKeyListener(new NappaimistonKuuntelija(this.peli, piirtoalusta));
-        
+
 //        if (!ajastin.isRunning() /*!ajastimenKuuntelija.getPallotLiikkuu()*/) {
 //            System.out.println("haahaa! peli ohi");
 //            JOptionPane.showMessageDialog(frame, "plaalaa");
@@ -72,12 +57,15 @@ public class Kayttoliittyma implements Runnable {
 //                    null,
 //                    options,
 //                    options[2]);
-
 //        }
     }
 
     public JFrame getFrame() {
         return frame;
+    }
+
+    public Piirtoalusta getPiirtoalusta() {
+        return this.piirtoalusta;
     }
 
     public int getIkkunanLeveys() {
@@ -86,5 +74,40 @@ public class Kayttoliittyma implements Runnable {
 
     public int getIkkunanKorkeus() {
         return this.ikkunanKorkeus;
+    }
+
+    public void kaynnista() {
+        peli.aloita();
+        ajastin.start();
+    }
+
+    public void paivita() {
+        if (peli.onkoOsunutVaistettavaan()) {
+            ajastin.stop();
+            luoLopetusruutu();
+            return;
+        }
+        peli.pallojenLiike();
+        piirtoalusta.repaint();
+    }
+
+    public void luoLopetusruutu() {
+        Object[] options = {"Käynnistä uusi peli",
+            "Lopeta peli"};
+        int n = JOptionPane.showOptionDialog(frame,
+                peli.getLaskuri().toString(),
+                "Game Over",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.PLAIN_MESSAGE,
+                null,
+                options,
+                options[0]);
+
+        if (n == JOptionPane.YES_OPTION) {
+            peli.getLaskuri().nollaaLaskuri();
+            kaynnista();
+        } else {
+            frame.dispose();
+        }
     }
 }
