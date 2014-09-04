@@ -50,5 +50,12 @@ public class PistelaskuriTest {
        }
        assertEquals("Pisteet: 4", pisteet.toString());
    }
+   @Test
+   public void laskurinNollausMetodiToimii() {
+       pisteet.kasvataArvoa();
+       pisteet.kasvataArvoa();
+       pisteet.nollaaLaskuri();
+       assertEquals(0, pisteet.getArvo());
+   }
    
 }

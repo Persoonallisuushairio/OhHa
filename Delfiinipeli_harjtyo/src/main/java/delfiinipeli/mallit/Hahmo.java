@@ -47,9 +47,4 @@ public class Hahmo {
         }
         return false;
     }
-//    public boolean hahmoOnRuudussa() {
-//        if (this.hahmoPysyyRuudussa(this.getX(), this.getY(), 1050, 650)) {
-//            return true;
-//        }
-//    }
 }

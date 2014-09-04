@@ -1,13 +1,16 @@
 package delfiinipeli.logiikka;
 
+import java.awt.event.KeyEvent;
+import static java.lang.reflect.Array.set;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
 public class PeliTest {
     
     Peli peli;
@@ -27,26 +30,12 @@ public class PeliTest {
 
     @Before
     public void setUp() {
-        peli = new Peli(1050, 650);
+        peli = new Peli(1000, 1000);
     }
 
     @After
     public void tearDown() {
     }
-
-
-//    MITEN?!?!?!?!?!?!?!?!
-//    @Test
-//    public void RandomYAntaaOikealtaValiltaArvonPallojaLuodessa() {
-//        
-//
-//    }
-//    @Test
-//    public void RandomNopeusAntaaArvonOikealtaValilta() {
-//        
-//    }
-
-    
     
     @Test
     public void getLaskuriPalauttaaLaskurin() {
@@ -55,13 +44,37 @@ public class PeliTest {
         
         assertEquals(2, peli.getLaskuri().getArvo());
     }
+    @Test
+    public void delfiiniLiikkuu() {
+        Set<Integer> setti = new HashSet<Integer>();
+        peli.setNappaimet(setti);
+        peli.aloita();
+        
+        assertEquals(1, peli.getDelfiini().getX());
+        assertEquals(500, peli.getDelfiini().getY());
+        
+        setti.add(KeyEvent.VK_DOWN);
+        peli.delfiininLiike();
+        assertEquals(1, peli.getDelfiini().getX());
+        assertEquals(507, peli.getDelfiini().getY());
+        
+        setti.clear();
+        setti.add(KeyEvent.VK_UP);
+        peli.delfiininLiike();
+        assertEquals(1, peli.getDelfiini().getX());
+        assertEquals(500, peli.getDelfiini().getY());
+        
+        setti.clear();
+        setti.add(KeyEvent.VK_RIGHT);
+        peli.delfiininLiike();
+        assertEquals(8, peli.getDelfiini().getX());
+        assertEquals(500, peli.getDelfiini().getY());
+        
+        setti.clear();
+        setti.add(KeyEvent.VK_LEFT);
+        peli.delfiininLiike();
+        assertEquals(1, peli.getDelfiini().getX());
+        assertEquals(500, peli.getDelfiini().getY());
+    }
     
-// ei voida testaa, ennenkuin tiedetään delfiini.osuuko-metodin toiminnasta..???
-    // et voi muutenkaan tehdä näin, sillä eihän laskurin arvo kasva, jos delfiini ei osu palloon!!
-//    @Test
-//    public void laskurinArvoKasvaaMetodiKasvattaaArvoa() {
-//        peli.laskurinArvoKasvaa();
-//        
-//        assertEquals(1, peli.getLaskuri().getArvo());
-//    }
 }

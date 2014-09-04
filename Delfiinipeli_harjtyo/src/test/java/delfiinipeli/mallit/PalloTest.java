@@ -47,9 +47,10 @@ public class PalloTest {
         assertFalse(pallo2.onkoVaistettava());
     }
     @Test
-    public void setVaistettavaMuuttaaTruenFalseksi() {
-        pallo.setVaistettava(false);
-        assertEquals(Color.BLUE, pallo.getVari());
+    public void setVaistettavaMuuttaaTruenFalseksiJaPallonSiniseksi() {
+       pallo.setVaistettava(false);
+       assertFalse(pallo.onkoVaistettava());
+       assertEquals(Color.BLUE, pallo.getVari());
     }
     
 }

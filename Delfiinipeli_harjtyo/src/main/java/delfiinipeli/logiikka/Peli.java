@@ -59,8 +59,12 @@ public class Peli {
         return this.pallot;
     }
 
+    public Pistelaskuri getLaskuri() {
+        return this.pisteet;
+    }
+
     public void delfiininLiike() {
-        int muutos = 5 + (int)nopeusLisa;
+        int muutos = 5 + (int) nopeusLisa;
 
         if (nappaimet.contains(KeyEvent.VK_LEFT) && delfiini.hahmoPysyyRuudussa(-muutos, 0, ikkunanLeveys, ikkunanKorkeus)) {
             delfiini.liikuta(-muutos, 0);
@@ -110,12 +114,8 @@ public class Peli {
         p.setNopeus(r.nextFloat() * 5.0f + nopeusLisa);
     }
 
-    public Pistelaskuri getLaskuri() {
-        return this.pisteet;
-    }
-
     public void aloita() {
-        this.delfiini.setX(0);
+        this.delfiini.setX(1);
         this.delfiini.setY(ikkunanKorkeus / 2);
         this.nappaimet.clear();
         this.nopeusLisa = 2.0f;

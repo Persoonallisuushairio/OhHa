@@ -74,4 +74,6 @@ public class HahmoTest {
         assertFalse(hahmo.hahmoPysyyRuudussa(-110, 5, 1050, 650));
     }
     
+    
+    
 }
