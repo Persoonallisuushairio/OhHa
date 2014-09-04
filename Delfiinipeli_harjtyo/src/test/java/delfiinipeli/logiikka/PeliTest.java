@@ -45,8 +45,7 @@ public class PeliTest {
 //    public void RandomNopeusAntaaArvonOikealtaValilta() {
 //        
 //    }
-    
-   
+
     
     
     @Test

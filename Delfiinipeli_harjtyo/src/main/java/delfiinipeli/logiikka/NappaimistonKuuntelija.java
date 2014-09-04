@@ -1,45 +1,45 @@
 package delfiinipeli.logiikka;
 
-import delfiinipeli.mallit.Delfiini;
-import delfiinipeli.mallit.Pallo;
-import java.awt.Component;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.*;
-        
+import java.util.HashSet;
+import java.util.Set;
+
 public class NappaimistonKuuntelija implements KeyListener {
+    private final Set<Integer> nappaimet;
 
-    private final Component component;
-    private final Delfiini delfiini;
-    private final Peli peli;
-
-    public NappaimistonKuuntelija(Peli peli, Component component) {
-        this.peli = peli;
-        this.delfiini = peli.getDelfiini();
-        this.component = component;
+    public NappaimistonKuuntelija() {
+        this.nappaimet = new HashSet<>();
+    }
+    
+    public Set<Integer> getNappaimet() {
+        return nappaimet;
     }
 
-    @Override
-    public void keyPressed(KeyEvent e) {
-        int muutos = 30;
-        int leveys = component.getWidth();
-        int korkeus = component.getHeight();
-        
-        if (e.getKeyCode() == KeyEvent.VK_LEFT && delfiini.hahmoPysyyRuudussa(-muutos, 0, leveys, korkeus)) {
-            this.delfiini.liikuta(-muutos, 0);
-        }  if (e.getKeyCode() == KeyEvent.VK_RIGHT && delfiini.hahmoPysyyRuudussa(muutos, 0, leveys, korkeus)) {
-            this.delfiini.liikuta(muutos, 0);
-        }  if (e.getKeyCode() == KeyEvent.VK_DOWN && delfiini.hahmoPysyyRuudussa(0, muutos, leveys, korkeus)) {
-            this.delfiini.liikuta(0, muutos);
-        }  if (e.getKeyCode() == KeyEvent.VK_UP && delfiini.hahmoPysyyRuudussa(0, -muutos, leveys, korkeus)) {
-            this.delfiini.liikuta(0, -muutos);
+    private boolean onkoHaluttu(int nappain) {
+        switch (nappain) {
+            case KeyEvent.VK_LEFT:
+            case KeyEvent.VK_RIGHT:
+            case KeyEvent.VK_DOWN:
+            case KeyEvent.VK_UP:
+                return true;
         }
         
-        //component.repaint();
+        return false;
+    }
+    
+    @Override
+    public void keyPressed(KeyEvent e) {
+        if(onkoHaluttu(e.getKeyCode())) {
+            nappaimet.add(e.getKeyCode());
+        }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
+        if(onkoHaluttu(e.getKeyCode())) {
+            nappaimet.remove(e.getKeyCode());
+        }
     }
 
     @Override

@@ -8,9 +8,9 @@ public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
     private final Piirtoalusta piirtoalusta;
-    private int ikkunanKorkeus;
-    private int ikkunanLeveys;
-    private Peli peli;
+    private final int ikkunanKorkeus;
+    private final int ikkunanLeveys;
+    private final Peli peli;
     private Timer ajastin;
 
     public Kayttoliittyma() {
@@ -37,7 +37,10 @@ public class Kayttoliittyma implements Runnable {
 
     private void luoKomponentit(Container container) {
         container.add(piirtoalusta);
-        frame.addKeyListener(new NappaimistonKuuntelija(this.peli, piirtoalusta));
+        NappaimistonKuuntelija kuuntelija = new NappaimistonKuuntelija();
+        peli.setNappaimet(kuuntelija.getNappaimet());
+        
+        frame.addKeyListener(kuuntelija);
     }
 
     public JFrame getFrame() {
@@ -67,6 +70,8 @@ public class Kayttoliittyma implements Runnable {
             luoLopetusruutu();
             return;
         }
+        
+        peli.delfiininLiike();
         peli.pallojenLiike();
         piirtoalusta.repaint();
     }

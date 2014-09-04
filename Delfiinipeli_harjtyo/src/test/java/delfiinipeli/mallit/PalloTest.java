@@ -34,10 +34,22 @@ public class PalloTest {
     }
 
     @Test 
-    public void konstruktoriAsettaaOikeinSateenJaVarin() {
+    public void konstruktoriAsettaaOikeinSateen() {
         assertEquals(25, pallo.getSade());
-        assertEquals(Color.GREEN, pallo.getVari());
-        
-        
     }
+    @Test
+    public void onkoVaistettavaPalauttaaTrue() {
+        assertTrue(pallo.onkoVaistettava());
+    }
+    @Test
+    public void onkoVaistettavaPalauttaaFalse() {
+        Pallo pallo2 = new Pallo(1050, 150, 2.0f, 25, false);
+        assertFalse(pallo2.onkoVaistettava());
+    }
+    @Test
+    public void setVaistettavaMuuttaaTruenFalseksi() {
+        pallo.setVaistettava(false);
+        assertEquals(Color.BLUE, pallo.getVari());
+    }
+    
 }
