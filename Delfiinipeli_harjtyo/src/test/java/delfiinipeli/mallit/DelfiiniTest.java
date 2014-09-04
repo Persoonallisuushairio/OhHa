@@ -24,17 +24,17 @@ public class DelfiiniTest {
     
     @Before
     public void setUp() {
-        d = new Delfiini(100, 100, 30);
+        d = new Delfiini(100, 100);
     }
     
     @After
     public void tearDown() {
     }
-    
-    @Test
-    public void konstruktoriAsettaaUlottuvuudenOikein() {
-        assertEquals(30, d.getUlottuvuus());
-    }
+//    
+//    @Test
+//    public void konstruktoriAsettaaUlottuvuudenOikein() {
+//        assertEquals(30, d.getUlottuvuus());
+//    }
     
     @Test
     public void osuukoMetodiToimii() {

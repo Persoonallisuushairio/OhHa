@@ -24,7 +24,7 @@ public class Piirtoalusta extends JPanel {
         super.setBackground(Color.WHITE);
 
         try {
-            this.delfiiniKuva = ImageIO.read(new File("delfiiniversio6.png"));
+            this.delfiiniKuva = ImageIO.read(new File("delfiini70.png"));
         } catch (IOException ex) {
             Logger.getLogger(Piirtoalusta.class.getName()).log(Level.SEVERE, null, ex);
             this.delfiiniKuva = null;
@@ -51,12 +51,3 @@ public class Piirtoalusta extends JPanel {
         }
     }
 }
-//    public void luoKuva(BufferedImage kuva,  String nimi) {
-//        try {
-//            kuva = ImageIO.read(new File(nimi));
-//        } catch (IOException e) {
-//            Logger.getLogger(Piirtoalusta.class.getName()).log(Level.SEVERE, null, e);
-//            kuva = null;
-//        }
-//    }
-//}

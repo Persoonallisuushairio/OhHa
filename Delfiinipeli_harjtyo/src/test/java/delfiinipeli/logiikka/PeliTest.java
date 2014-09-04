@@ -11,8 +11,10 @@ import org.junit.Test;
 public class PeliTest {
     
     Peli peli;
+   
     
     public PeliTest() {
+        
     }
 
     @BeforeClass
@@ -25,7 +27,7 @@ public class PeliTest {
 
     @Before
     public void setUp() {
-        peli = new Peli();
+        peli = new Peli(1050, 650);
     }
 
     @After

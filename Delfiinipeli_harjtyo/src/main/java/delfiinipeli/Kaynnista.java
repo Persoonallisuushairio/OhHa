@@ -13,8 +13,7 @@ import javax.swing.SwingUtilities;
 public class Kaynnista {
 
     public static void main(String[] args) {
-        Peli peli = new Peli();
-        Kayttoliittyma kayttoliittyma = new Kayttoliittyma(peli, new Piirtoalusta(peli));
+        Kayttoliittyma kayttoliittyma = new Kayttoliittyma();
         SwingUtilities.invokeLater(kayttoliittyma);
     }
 }

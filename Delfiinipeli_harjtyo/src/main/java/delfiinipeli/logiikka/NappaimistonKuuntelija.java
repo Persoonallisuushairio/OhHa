@@ -35,7 +35,7 @@ public class NappaimistonKuuntelija implements KeyListener {
             this.delfiini.liikuta(0, -muutos);
         }
         
-        component.repaint();
+        //component.repaint();
     }
 
     @Override

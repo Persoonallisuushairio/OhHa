@@ -8,8 +8,8 @@ public class Delfiini extends Hahmo {
     }
  
     public int pallonTyyppi(Pallo pallo) {
-        int vaistettava = 30;
-        int poimittava = 55;
+        int vaistettava = 25;
+        int poimittava = 35;
         if (pallo.onkoVaistettava()) {
             return vaistettava; 
         } 
